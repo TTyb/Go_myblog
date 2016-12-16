@@ -1,5 +1,5 @@
 {{template "header"}}
-    	<title>管理 - 百哥么么哒</title>
+    	<title>分类 - 百哥么么哒</title>
   	</head>
 
 	<body>
@@ -10,8 +10,7 @@
 		</div>
 
 		<div class="container">
-			<h1>文章列表</h1>
-			<a type="submit" class="btn btn-default" href="/manage/add">添加文章</a>
+			<h1>分类列表</h1>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -19,7 +18,6 @@
 						<th>标题</th>
 						<th>创建时间</th>
 						<th>分类</th>
-						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,10 +26,8 @@
 						<th>百哥么么哒</th>
 						<th><a href="/topic/view?title={{.Title}}">{{.Title}}</a></th>
 						<th>{{.Createdtime}}</th>
-						<th>{{.Category}}</th>
 						<th>
-							<a href="/manage/modify?title={{.Title}}">修改</a>
-							<a href="/manage/delete?title={{.Title}}&category={{.Category}}&createdtime={{.Createdtime}}">删除</a>
+							<a href="/category?category={{.Category}}">{{.Category}}</a>
 						</th>
 					</tr>
 					{{end}}
