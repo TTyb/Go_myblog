@@ -15,7 +15,7 @@ func (c *TopicController) Get() {
 	c.TplName = "topic.html"
 	//检查是不是登陆状态
 	c.Data["IsLogin"] = checkAccount(c.Ctx)
-	topics, err := tools.GetAllTopics()
+	topics, err := tools.GetAllTopicsTopic()
 	if err != nil {
 		beego.Error(err)
 	}
