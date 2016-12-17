@@ -46,6 +46,7 @@ func (c *ManageController) Post() {
 	}
 
 	// 解析表单
+	oldtitle := c.Input().Get("oldtitle")
 	title := c.Input().Get("title")
 	content := c.Input().Get("content")
 	category := c.Input().Get("category")
@@ -66,6 +67,11 @@ func (c *ManageController) Post() {
 		//写入内容到md
 		mdname := createdtime + "#" + title + ".md"
 		tools.Writefile(category, mdname, content)
+		//顺便删除老的md
+		err := tools.DeleteTopic(oldtitle, createdtime, category)
+		if err != nil {
+			beego.Error(err)
+		}
 	}
 
 	c.Redirect("/manage", 302)

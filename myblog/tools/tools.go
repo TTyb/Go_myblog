@@ -167,6 +167,9 @@ func readfile(path string) (content string) {
 	for scanner.Scan() {
 		content = content + strings.TrimSpace(scanner.Text()) + "\n"
 	}
+	//如果不需要markdown就把下面这句注释掉
+	//return content
+	//output := blackfriday.MarkdownBasic([]byte(content))
 	return content
 }
 
@@ -240,3 +243,105 @@ func GetCategoryContent(category string) ([]Topic, error) {
 	}
 	return cate, err
 }
+
+//获得所有分类名字
+func GetCategoryName() (string,error) {
+	//获取当前路径的上一级路径
+	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		beego.Error(err)
+	}
+	//C:/GOPATH/src/myblog/topic/
+	categorypath := strings.Replace(parent, "\\", "/", -1) + "/topic/"
+	categorynames := GetList(categorypath)
+
+	//自己构造html
+	html := ""
+	for _, n := range categorynames {
+		//<li><a href="/category?category={{.Category}}">{{.Category}}</a></li>
+		html = html + "<li><a href=\"/category?category=" + n + "\">" + n + "</a></li>"
+	}
+	return html, err
+}
+//
+//
+//
+////读取文件以markdown样式输出
+////修改文章专用的getcontent
+////读取文件的内容
+//func markdownreadfile(path string) (content string) {
+//
+//	content = ""
+//	file, err := os.Open(path)
+//	if err != nil {
+//		beego.Error(err)
+//		os.Exit(1)
+//	}
+//	defer file.Close()
+//	scanner := bufio.NewScanner(file)
+//	for scanner.Scan() {
+//		content = content + strings.TrimSpace(scanner.Text()) + "\n"
+//	}
+//	return content
+//}
+//
+////获取文章markdown样式
+//func GetMarkdownContent(title string) ([]Topic, error) {
+//
+//	var cate []Topic
+//	topics, err := GetAllMarkdownTopics()
+//	if err != nil {
+//		beego.Error(err)
+//	}
+//
+//	for _, maps := range topics {
+//		//如果title一样就返回这个文件的内容
+//		if maps.Title == title {
+//			cate = append(cate, maps)
+//		}
+//	}
+//	return cate, err
+//}
+//
+////获取markdown所有文章列表
+////获取所有的文章列表
+//func GetAllMarkdownTopics() ([]Topic, error) {
+//
+//	var Title string
+//	var Createdtime string
+//	var Content string
+//	var Category string
+//
+//	var cate []Topic
+//	//获取当前路径的上一级路径
+//	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+//	if err != nil {
+//		beego.Error(err)
+//	}
+//	//C:/GOPATH/src/myblog/topic/
+//	filetopic := strings.Replace(parent, "\\", "/", -1) + "/topic/"
+//	//获取所有分类--[百哥]
+//	categories := GetList(filetopic)
+//	for _, n := range categories {
+//
+//		//获得分类
+//		Category = n
+//		//每个分类的文件夹目录为
+//		//C:/GOPATH/src/myblog/topic/百哥
+//		catefilepath := filetopic + n
+//		//打开每个分类获取里面的md信息
+//		mdname := GetList(catefilepath)
+//		//遍历每个md的名字
+//		for _, mname := range mdname {
+//			//获得创建时间
+//			Createdtime = strings.Split(mname, "#")[0]
+//			//获得文章标题
+//			Title = strings.Split(strings.Split(mname, "#")[1], ".")[0]
+//			//获得每个md的内容
+//			Content = markdownreadfile(catefilepath + "/" + mname)
+//			cates := Topic{Title:Title, Createdtime:Createdtime, Category:Category, Content:Content}
+//			cate = append(cate, cates)
+//		}
+//	}
+//	return cate, err
+//}

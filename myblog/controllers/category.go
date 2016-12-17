@@ -29,4 +29,10 @@ func (c *CategoryController) Get() {
 		c.Data["Topics"] = topics
 		c.TplName = "category.html"
 	}
+
+	var err error
+	c.Data["Categories"], err = tools.GetCategoryName()
+	if err != nil {
+		beego.Error(err)
+	}
 }
