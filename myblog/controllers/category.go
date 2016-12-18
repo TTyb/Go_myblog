@@ -26,6 +26,7 @@ func (c *CategoryController) Get() {
 		if err != nil {
 			beego.Error(err)
 		}
+		//显示为分类的时候就不用页码了
 		c.Data["Topics"] = topics
 		c.TplName = "category.html"
 	}
