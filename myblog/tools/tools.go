@@ -303,3 +303,37 @@ func GetAllTopicsTopic() ([]Topic, error) {
 	}
 	return cate, err
 }
+
+//获取日志内容
+func GetLogContent() (content string){
+	//获取当前路径的上一级路径
+	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		beego.Error(err)
+	}
+	//C:/GOPATH/src/myblog/log/
+	filelog := strings.Replace(parent, "\\", "/", -1) + "/log/log.md"
+	content = readfile(filelog)
+	return content
+}
+
+//写入日志
+func WriteLog(content string) (error){
+	//获取当前路径的上一级路径
+	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		beego.Error(err)
+	}
+
+	filelog := strings.Replace(parent, "\\", "/", -1) + "/log/log.md"
+	file, err := os.Create(filelog)
+	if err != nil {
+		beego.Error(err)
+	}
+	//最后关闭
+	defer file.Close()
+	//写入内容
+	file.WriteString(content)
+
+	return err
+}
