@@ -23,7 +23,7 @@
 <div class="container">
     {{range .Topics}}
     <div class="page-header">
-        <h2><a href="/topic/view?title={{.Title}}">{{.Title}}</a></h2>
+        <h3><a href="/topic/view?title={{.Title}}">{{.Title}}</a></h3>
         <h6 class="text-muted">文章发表于 {{.Createdtime}} 分类：{{.Category}}</h6>
         <p class="text-overflow">
             {{.Content}}
@@ -66,7 +66,7 @@
         </ul>
     </form>
 </div>
-
+{{template "footer"}}
 <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 </body>
