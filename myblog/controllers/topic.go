@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"myblog/tools"
 	"strconv"
+	"time"
 )
 
 type TopicController struct {
@@ -128,17 +129,44 @@ func (c *TopicController) View() {
 	//检查是不是登陆状态
 	c.Data["IsLogin"] = checkAccount(c.Ctx)
 
-	// 获取id
+	// 获取title
 	title := c.Input().Get("title")
 
 	//查看文章详细
-	var err error
 	topic, err := tools.GetTopicsContent(title)
 	if err != nil {
 		beego.Error(err)
 	}
 	c.Data["Topic"] = topic[0]
+	//第一次可能没有评论
+	c.Data["Content"], err = tools.ReadComment(title)
+	if err != nil {
+		beego.Error(err)
+		c.Data["Content"] = ""
+	}
 	//查看文章详细
 	c.TplName = "topic_view.html"
+}
 
+func (c *TopicController) Add() {
+	//获取表单
+	title := c.Input().Get("title")
+	email := c.Input().Get("email")
+	content := c.Input().Get("content")
+	//当前时间
+	nowtime := time.Now().Format("2006-01-02")
+
+	if email == "420439007@qq.tyb" {
+		email = "作者TTyb"
+	}
+	err := tools.WriteComment(title, email, nowtime, content)
+	if err != nil {
+		beego.Error(err)
+	}
+
+	c.Data["Content"], err = tools.ReadComment(title)
+	if err != nil {
+		beego.Error(err)
+	}
+	c.Redirect("/topic/view?title=" + title, 302)
 }

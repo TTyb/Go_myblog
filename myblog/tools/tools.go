@@ -337,3 +337,53 @@ func WriteLog(content string) (error){
 
 	return err
 }
+
+//写入评论
+func WriteComment(title,commentname,commenttime,commentcontent string)(error) {
+	//获取当前路径的上一级路径
+	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		beego.Error(err)
+	}
+	//构造文件夹
+	//C:/GOPATH/src/myblog/comment/
+	filepath := strings.Replace(parent, "\\", "/", -1) + "/comment/" + title + ".comment"
+	//创建文件
+	file, err := os.OpenFile(filepath, os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		beego.Error(err)
+		file, err = os.Create(filepath)
+	}
+	//最后关闭
+	defer file.Close()
+	//构造内容
+	content := "<h4><b>" + commentname + "&nbsp;&nbsp;</b><small>" + commenttime + "</small></h4>" + commentcontent + "<hr>"
+	//写入内容
+	file.WriteString(content)
+	return err
+}
+
+//读取评论
+func ReadComment(title string) (content string,error error) {
+	//获取当前路径的上一级路径
+	parent, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		beego.Error(err)
+	}
+	//构造文件夹
+	//C:/GOPATH/src/myblog/comment/
+	filepath := strings.Replace(parent, "\\", "/", -1) + "/comment/" + title + ".comment"
+
+	content = ""
+	file, err := os.Open(filepath)
+	if err != nil {
+		beego.Error(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		content = content + strings.TrimSpace(scanner.Text())
+	}
+
+	return content,error
+}

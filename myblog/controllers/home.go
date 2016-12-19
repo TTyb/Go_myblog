@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"myblog/tools"
+
 )
 
 type HomeController struct {
@@ -12,13 +12,13 @@ type HomeController struct {
 func (c *HomeController) Get() {
 
 	//登陆状态就可以跳转
-	c.TplName = "home.html"
+	c.TplName = "index.html"
 	//检查是不是登陆状态
 	c.Data["IsLogin"] = checkAccount(c.Ctx)
-
-	topics, err := tools.GetAllTopics()
-	if err != nil {
-			beego.Error(err)
-		}
-	c.Data["Topics"] = topics
+	//
+	//topics, err := tools.GetAllTopics()
+	//if err != nil {
+	//		beego.Error(err)
+	//	}
+	//c.Data["Topics"] = topics
 }
