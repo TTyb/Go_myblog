@@ -18,4 +18,6 @@ func init() {
 	//这个是log的
 	beego.Router("/log", &controllers.LogController{})
 	beego.AutoRouter(&controllers.LogController{})
+	//错误机制
+	beego.ErrorController(&controllers.ErrorController{})
 }

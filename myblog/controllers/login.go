@@ -33,7 +33,7 @@ func (c *LoginController) Post() {
 	uname := c.Input().Get("username")
 	pwd := c.Input().Get("password")
 
-	if uname == "admin" && pwd == "admin" {
+	if uname == "TTyb" && pwd == "##123456qwe" {
 		beego.Error("账号密码正确！")
 
 		//设置cookie
