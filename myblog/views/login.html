@@ -1,0 +1,59 @@
+{{template "header"}}
+<!--百哥么么哒-->
+<title>登陆 - 百哥么么哒|网站</title>
+</head>
+<body>
+<div class="container" style="width: 500px;">
+    <form class="form-horizontal" action="/login" method="post">
+        <div class="form-group">
+            <label class="col-lg-4 control-label">帐号：</label>
+            <div class="col-lg-6">
+                <input id="username" type="username" class="form-control" name="username" placeholder="Account">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">密码：</label>
+            <div class="col-lg-6">
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-4 col-lg-10">
+                <div class="checkbox">
+                    <label>
+                        <input name="autoLogin" type="checkbox">下次自动登录
+                    </label>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-default" onclick="return checkInput();">登录</button>
+                <button class="btn btn-default" onclick="return backToHome();">返回首页</button>
+                <script type="text/javascript">
+                    function checkInput() {
+                        var uname = document.getElementById("username");
+                        if (uname.value.length == 0) {
+                            alert("请输入管理员帐号");
+                            return false;
+                        }
+
+                        var pwd = document.getElementById("password");
+                        if (pwd.value.length == 0) {
+                            alert("请输入管理员密码");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    function backToHome() {
+				      		window.location.href = "/";
+				      		return false;
+				      	}
+                </script>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

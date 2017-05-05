@@ -1,0 +1,46 @@
+{{template "header"}}
+    	<title>分类 - 百哥么么哒|网站</title>
+  	</head>
+
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				{{template "navbar" .}}
+			</div>
+		</div>
+
+		<div class="container">
+			<h1>分类列表</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>标题</th>
+						<th>创建时间</th>
+						<th class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">分类<strong class="caret"></strong></a>
+							<ul class="dropdown-menu container-fluid" style="border-radius: 6px 6px 6px 6px;">
+								{{str2html .Categories}}
+							</ul>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{range .Topics}}
+					<tr>
+						<th>百哥么么哒</th>
+						<th><a href="/topic/view?title={{.Title}}">{{.Title}}</a></th>
+						<th>{{.Createdtime}}</th>
+						<th>
+							<a href="/category?category={{.Category}}">{{.Category}}</a>
+						</th>
+					</tr>
+					{{end}}
+				</tbody>
+			</table>
+		</div>
+{{template "footer"}}
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>

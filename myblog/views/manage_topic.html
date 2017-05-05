@@ -1,0 +1,80 @@
+{{template "header"}}
+    	<title>管理文章 - 百哥么么哒|网站</title>
+  	</head>
+
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				{{template "navbar" .}}
+			</div>
+		</div>
+
+		<div class="container">
+			<h1>文章列表</h1>
+			<a type="submit" class="btn btn-default" href="/manage/add">添加文章</a>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>标题</th>
+						<th>创建时间</th>
+						<th>分类</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{range .Topics}}
+					<tr>
+						<th>百哥么么哒</th>
+						<th><a href="/topic/view?title={{.Title}}">{{.Title}}</a></th>
+						<th>{{.Createdtime}}</th>
+						<th>{{.Category}}</th>
+						<th>
+							<a href="/manage/modify?title={{.Title}}">修改</a>
+							<a href="/manage/delete?title={{.Title}}&category={{.Category}}&createdtime={{.Createdtime}}">删除</a>
+						</th>
+					</tr>
+					{{end}}
+				</tbody>
+			</table>
+		</div>
+
+		<div style="text-align:center" class="container">
+			<form method="GET" action="/manage">
+				<ul class="pagination pagination-sm">
+
+					<li class="disabled">
+						<a>
+							共{{.Count}}条数据 每页{{.Display}}条 当前{{.Nowpage}}页
+						</a>
+					</li>
+					<li>
+						<a href="/manage?page={{.FirstPage}}">首页</a>
+					</li>
+					<li>
+						<a href="/manage?page={{.PrevPage}}">上一页</a>
+					</li>
+					<li>
+						<a href="/manage?page={{.NextPage}}">下一页</a>
+					</li>
+					<li>
+						<a href="/manage?page={{.LastPage}}">末页</a>
+					</li>
+					<li>
+						<input type="text" name="skippage" placeholder="跳转页"
+							   style="width: 47px;height: 29px;border: 1px solid #dddddd;border-left: 0px;border-radius: 0px 4px 4px 0px;text-align: center;font-size: 12px">
+					</li>
+					<li>
+						<button type="submit" class="btn btn-default"
+								style="width: 47px;height: 29px;border: 1px solid #dddddd;text-align: center;font-size: 12px;">
+							确定
+						</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+{{template "footer"}}
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>
