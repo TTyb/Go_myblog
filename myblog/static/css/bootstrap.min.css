@@ -289,18 +289,25 @@ button, input, select[multiple], textarea {
 }
 
 a {
+<<<<<<< HEAD
     /*缓慢变色是自己加的*/
     -moz-transition: color 0.2s ease, border-bottom-color 0.2s ease;
     -webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
     -ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
+=======
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
     color: #428bca;
     text-decoration: none
 }
 
 a:hover, a:focus {
+<<<<<<< HEAD
     /*超链接字体的颜色，原来是color:#2a6496;*/
     color: #EF6480 !important;
+=======
+    color: #2a6496;
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
     text-decoration: underline
 }
 
@@ -2938,6 +2945,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     outline: 0
 }
 
+<<<<<<< HEAD
 /*before和after是自己加哒*/
 .dropdown-menu:before {
     content: '';
@@ -2962,6 +2970,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     right: 10px;
 }
 
+=======
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -2969,7 +2979,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     z-index: 1000;
     display: none;
     float: left;
+<<<<<<< HEAD
     min-width: 100%;
+=======
+    min-width: 160px;
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
     padding: 5px 0;
     margin: 2px 0 0;
     font-size: 14px;
@@ -2980,7 +2994,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+<<<<<<< HEAD
     background-clip: padding-box;
+=======
+    background-clip: padding-box
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 }
 
 .dropdown-menu.pull-right {
@@ -3651,8 +3669,13 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .nav .caret {
+<<<<<<< HEAD
     border-top-color: #777777;
     border-bottom-color: #777777
+=======
+    border-top-color: #428bca;
+    border-bottom-color: #428bca
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 }
 
 .nav a:hover .caret {
@@ -6488,6 +6511,7 @@ ul.icons li:last-child {
         margin-bottom: 2em;
     }
 
+<<<<<<< HEAD
 }
 
 .htmleaf-container{
@@ -6533,3 +6557,6 @@ ul.icons li:last-child {
 .posterTvGrid .bottomNavButtonON:hover{background:#69aaec;}
 .posterTvGrid .bottomNavLeft{}
 .posterTvGrid .bottomNavRight{}
+=======
+}
+>>>>>>> 68b512a407b9864826478256581f6a185625d076

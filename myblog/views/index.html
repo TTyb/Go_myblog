@@ -1,4 +1,5 @@
 {{template "header"}}
+<<<<<<< HEAD
 
 <link rel="stylesheet" href="../static/css/main.css"/>
 <script src="../static/js/jquery.min.js"></script>
@@ -54,11 +55,48 @@
                     <li {{if .IsLog}} class="active" {{end}}><a class="navbar-brand" href="/log">留言</a></li>
                     <li {{if .IsLog}} class="active" {{end}}><a class="navbar-brand" href="/log">联系</a></li>
                 </ul>
+=======
+<title>首页 - 百哥么么哒|网站</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="../static/css/main.css"/>
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand brand" href="/">TTyb|个人网站</a>
+
+        <div class="pull-right" style="font-size: 6px;font-family: serif;">
+            <ul class="nav navbar-nav">
+                {{if .IsLogin}}
+                <li><a class="navbar-brand" href="/login?exit=true">退出登录</a></li>
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle navbar-brand" href="#">管理<strong
+                            class="caret"></strong></a>
+                    <ul class="dropdown-menu container-fluid navbar-brand" style="border-radius: 6px 6px 6px 6px;">
+                        <li><a href="/manage/topic">管理文章</a></li>
+                        <li><a href="/manage/log">管理日志</a></li>
+                    </ul>
+                </li>
+                {{else}}
+                <li><a class="navbar-brand" href="/login">管理员登录</a></li>
+                {{end}}
+            </ul>
+        </div>
+
+        <div style="font-size: 6px;font-family: serif;">
+            <ul class="nav navbar-nav">
+                <li {{if .IsHome}} class="active" {{end}}><a class="navbar-brand" href="/">首页</a></li>
+                <li {{if .IsTopic}} class="active" {{end}}><a class="navbar-brand" href="/topic">文章</a></li>
+                <li {{if .IsCategory}} class="active" {{end}}><a class="navbar-brand" href="/category">分类</a></li>
+                <li {{if .IsLog}} class="active" {{end}}><a class="navbar-brand" href="/log">日志</a></li>
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
             </ul>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="htmleaf-container">
 		<div class="htmleaf-content">
 			<div id="posterTvGrid" style="margin:40px auto 0 auto;"></div>
@@ -83,12 +121,22 @@
 		]
 	);
 	</script>
+=======
+<!-- Header -->
+<header id="header" class="alt">
+    <div class="inner">
+        <h1>TTyb</h1>
+        <p>A data mining engineer who can repair computers</p>
+    </div>
+</header>
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 
 <!-- Wrapper -->
 <div id="wrapper">
 
     <!-- Banner -->
     <section id="intro" class="main">
+<<<<<<< HEAD
         <img src="static/jpg/head.jpg" alt=""/>
         <h2 style="font-family: KaiTi;">百哥么么哒</h2>
         <p>A data mining engineer who can<br/>
@@ -98,6 +146,17 @@
         <div style="margin:20px">
             <marquee direction="left" style="font-family: KaiTi;">不用多久，我就会升职加薪，当上总经理，出任CEO，迎娶白富美，走上人生巅峰|Pretty soon I'll General Manager,be promoted as CEO and marry Bai Fu Mei on the salary increase when pinnacle toward life </marquee>
         </div>
+=======
+        <!--<span class="icon fa-diamond major"></span>-->
+        <img src="/static/jpg/head.jpg" alt="" />
+        <h2 style="font-family: KaiTi;">百哥么么哒</h2>
+        <p>A data mining engineer who can<br/>
+            analyze data, mining data,<br/>
+            programming and repair computers.</p>
+        <ul class="actions">
+            <li><a href="https://github.com/TTyb" class="button big">Follow</a></li>
+        </ul>
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
     </section>
 
     <!-- Items -->
@@ -151,6 +210,7 @@
             </ul>
         </article>
     </section>
+<<<<<<< HEAD
     <!-- Main -->
 
     <!-- Footer -->
@@ -176,11 +236,35 @@
             <li><a href="/" class="icon fa-home"><span class="label">首页</span></a></li>
             <li><a href="http://www.lenggirl.com/" class="icon fa-heart"><span class="label">一只尼玛</span></a></li>
             <li><a href="/cloud" class="icon fa-cloud"><span class="label">云世界</span></a></li>
+=======
+
+    <!-- CTA -->
+    <section id="cta" class="main special" style="font-family: KaiTi;">
+        <h3>无聊就想打码 打码使我快乐</h3>
+        <p class="text-muted">不用多久<br/>
+            我就会升职加薪<br/>
+            当上总经理<br/>
+            出任CEO<br/>
+            迎娶白富美<br/>
+            走上人生巅峰</p>
+    </section>
+
+    <!-- Main -->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-qq" onclick="QQ()"><span class="label">QQ</span></a></li>
+            <li><a href="https://github.com/TTyb" class="icon fa-github"><span class="label">Github</span></a></li>
+            <li><a href="/" class="icon fa-home"><span class="label">首页</span></a></li>
+            <li><a href="http://www.cnblogs.com/TTyb/" class="icon fa-link"><span class="label">博客园</span></a></li>
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
             <li><a href="/404" class="icon fa-map-signs"><span class="label">404</span></a></li>
         </ul>
         <p class="copyright">Copyright &copy; TTyb All rights reserved.</p>
     </footer>
 
+<<<<<<< HEAD
     <script type="text/javascript" src="../static/js/jquery.gototop.min.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -195,5 +279,21 @@
     </script>
 </div>
 
+=======
+</div>
+
+<!-- Scripts -->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/skel.min.js"></script>
+<script src="../static/js/util.js"></script>
+<script src="../static/js/main.js"></script>
+<script type="text/javascript">
+
+    function QQ() {
+        window.alert("QQ:420439007");
+    }
+
+</script>
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 </body>
 </html>

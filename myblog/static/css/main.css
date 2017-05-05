@@ -7,7 +7,11 @@
 		margin: 0;
 		padding: 0;
 		border: 0;
+<<<<<<< HEAD
 		font-size: 62.5%;
+=======
+		font-size: 100%;
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 		font: inherit;
 		vertical-align: baseline;
 	}
@@ -43,13 +47,21 @@
 	}
 
 /* Box Model */
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 	*, *:before, *:after {
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 /* Basic */
 
 	@-ms-viewport {
@@ -92,7 +104,11 @@
 
 	body, input, select, textarea {
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
+<<<<<<< HEAD
 		font-size: 14pt;
+=======
+		font-size: 17pt;
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 		font-weight: 200;
 		line-height: 1.65;
 	}
@@ -127,7 +143,11 @@
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		text-decoration: none;
+<<<<<<< HEAD
 		border-bottom: none;
+=======
+		border-bottom: dotted 1px;
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 	}
 
 		a:hover {
@@ -1267,7 +1287,10 @@
 /* Header */
 
 	#header {
+<<<<<<< HEAD
 	    top:40px;
+=======
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 		background-color: #444;
 		color: rgba(255, 255, 255, 0.75);
 		display: -moz-flex;

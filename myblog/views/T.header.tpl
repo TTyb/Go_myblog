@@ -7,6 +7,7 @@
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		 <!-- Stylesheets -->
+<<<<<<< HEAD
 		<link href="/static/css/font-awesome.min.css" rel="stylesheet" />
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="/static/css/font-awesome.min.css" rel="stylesheet"/>
@@ -19,4 +20,8 @@
     
         <title>百哥么么哒|个人网站</title>
     </head>
+=======
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+>>>>>>> 68b512a407b9864826478256581f6a185625d076
 {{end}}
